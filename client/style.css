@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lato&family=Montserrat:wght@600&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Vollkorn&display=swap");
+
+html body {
+  height: 100%;
+  background-color: #fffaf5;
+}
+
+/* Navbar styling */
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: white;
+  border-bottom: 2px solid rgb(211, 147, 147);
+}
+
+.nav-item,
+.nav-item a {
+  margin: 10px 15px;
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+.form-control {
+  border-radius: 4.25rem;
+}
+
+/* Positioning the logo  */
+
+.logo {
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+/* Search bar */
+
+#content {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-form {
+  border-radius: 30px;
+}
+
+#search {
+  border: 100px;
+}
+
+.search-btn {
+  border-radius: 0 30px 30px 0;
+  background-color: #fff;
+}
+
+.text-center {
+  color: #fff;
+}
+
+/* Button Styling */
+#buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn1 {
+  background-color: rgb(221, 120, 120);
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.btn1:hover {
+    opacity: 1;
+}
+
+/* Sticky footer */
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #cfc6bd !important;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 20px;
+}
