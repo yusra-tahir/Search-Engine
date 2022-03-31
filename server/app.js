@@ -1,15 +1,11 @@
-const app = require('express')();
-const port = 3000;
+const express = require('express');
+const app = express();
 const cors = require('cors');
-
-
- //app.listen( port, () => {console.log(`its alive on http://localhost:${port}`);
-   // });
+const { json } = require('body-parser');
 
 //Array of results from google
 const Google = [
     {
-
         id: 1,
         search: 'Twitter',
         summary: 'Social media website for Twitter',
@@ -58,7 +54,7 @@ const Google = [
         link: 'https://whatsapp.com'
     },
     {
-        id: 9, 
+        id: 9,
         search: 'Telegram',
         summary: 'Social media website for Telegram',
         link: 'https://telegram.com'
@@ -73,47 +69,31 @@ const Google = [
 
 JSON.stringify(Google);
 
-
-const httpStatusCodes = {
-    Sucess: 200,
-    Error: 400,
-    Not_Found: 404,
-    Server_Error: 500
-}
+app.use(cors());
 
 //homepage
 app.get('/', (req, res) => {
-    res.statusCode = 200;
-    res.send('Our Google API');
+    res.send('Hello World!');
+});
+
+//searches endpoint
+app.get('/google_searches', (req, res) => {
+    res.send(Google);
 })
 
-//Route to retrieve all social media:
-app.get('/google.searches', (req, res) =>{
-    res.statusCode = 200;
-    res.send(Google)
-})
-
-//route to retrieve social media at random:                        //not working (googleId)
-
-app.get('/google-searches/:id', (req, res) =>{
-    try{
-        res.statusCode = 200;
-        const GoogleId = req.params.id - 1;    
+//route to retrieve result with specific id           
+app.get('/google_searches/:id', (req, res) => {
+    const indx = parseInt(req.params.id);
+    if (indx > 0 && indx <= Google.length) {
+        const GoogleId = req.params.id - 1;
         const selectedGoogle = Google[GoogleId];
         res.send(selectedGoogle);
-    } catch(error) {
-        console.error(error);
-    } finally {
-        console.log("Could not recive request")
+    } else {
+        res.send({ Error: 'Page not found' });
     }
-})   
+});
 
-//Handling out-of-range IDs:                                  //not working
-app.get('/google-searches/random', (req, res) => {
-    res.statusCode = 200;
-    res.send(getRandomSearch())
-})
- 
+
 //run server:
 
-module.exports = app, httpStatusCodes;
+module.exports = app;
