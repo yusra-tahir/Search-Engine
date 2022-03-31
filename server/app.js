@@ -75,13 +75,13 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
-
+ 
 //searches endpoint
 app.get('/google_searches', (req, res) => {
     res.send(Google);
 })
 
-//route to retrieve result with specific id           
+//route to retrieve result with specific index           
 app.get('/google_searches/:id', (req, res) => {
     const indx = parseInt(req.params.id);
     if (indx > 0 && indx <= Google.length) {

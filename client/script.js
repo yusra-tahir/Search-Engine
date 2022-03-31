@@ -4,7 +4,7 @@ const allResults = document.getElementById('allResults');
 const oneResult = document.getElementById('oneResult');
 
 // Handle submit event and run the function to fetch a random quote
-allResults.addEventListener('click', oneResult)
+allResults.addEventListener('click', oneResult);
 
 function oneResult(e) {
   e.preventDefault()
